@@ -520,6 +520,9 @@ PODS:
   - nanopb/encode (2.30908.0)
   - ObjectMapper (4.2.0)
   - PromisesObjC (2.0.0)
+  - SDWebImage (5.13.2):
+    - SDWebImage/Core (= 5.13.2)
+  - SDWebImage/Core (5.13.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -533,6 +536,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - MBProgressHUD
   - ObjectMapper
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -563,6 +567,7 @@ SPEC REPOS:
     - nanopb
     - ObjectMapper
     - PromisesObjC
+    - SDWebImage
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -592,7 +597,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
 
-PODFILE CHECKSUM: 7e57a7767d49ea716850220a23e6e4c20ff807de
+PODFILE CHECKSUM: e5f1c8ec8b2e724d0f0b3c8a7720ce5bfcfb6ecc
 
 COCOAPODS: 1.11.3

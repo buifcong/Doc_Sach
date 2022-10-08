@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class BookTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lbTitle: UILabel!
@@ -25,7 +25,11 @@ class BookTableViewCell: UITableViewCell {
             lbAuthor.text = item?.author
             lbTitle.text = item?.subTitle
             lbNameBook.text = item?.title
-            ivBook.setCustomImage(item?.media?.thumbUrl)
+            if let url = item?.media?.thumbUrl {
+                ivBook.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder.png"))
+            }
+            
         }
     }
+   
 }

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import MBProgressHUD
+import SDWebImage
 
 func cornerAndBorder(view:[UIView],corner:CGFloat,border:Bool,borderWith:CGFloat?,borderColor:CGColor?){
     for view in view {
@@ -53,17 +54,17 @@ extension UIViewController {
 }
 
 extension UIImageView {
-
-    func setCustomImage(_ imgURLString: String?) {
-        guard let imageURLString = imgURLString else {
-            self.image = UIImage(named: "default.png")
-            return
-        }
-        DispatchQueue.global().async { [weak self] in
-            let data = try? Data(contentsOf: URL(string: imageURLString)!)
-            DispatchQueue.main.async {
-                self?.image = data != nil ? UIImage(data: data!) : UIImage(named: "default.png")
-            }
+    func loadImage(url: String?, placeholderImage: UIImage? = nil, completed: ((_ image: UIImage?) -> Void)? = nil) {
+        if let link = url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), !link.isEmpty {
+            let url = URL(string: link)
+            self.sd_setImage(with: url, placeholderImage: placeholderImage, completed: {image, error, _, _ in
+                if error != nil {
+                    print("loadImage", error?.localizedDescription ?? "")
+                }
+                completed?(image)
+            })
+        } else {
+            self.image = UIImage(named: "thumbnail")
         }
     }
 }

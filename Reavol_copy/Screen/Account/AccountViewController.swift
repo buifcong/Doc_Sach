@@ -22,6 +22,10 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         viewBlur.isHidden = true
     }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        navigationController?.navigationBar.isHidden = true
+    }
     @IBAction func actionButton(_ sender: UIButton) {
         switch sender {
         case btnLogOut:

@@ -16,6 +16,7 @@ target 'Reavol_copy' do
  pod 'IQKeyboardManager'
  pod 'GoogleSignIn'
  pod 'Firebase/Firestore'
+ pod 'SDWebImage'
  
  #Loading
  pod 'MBProgressHUD'

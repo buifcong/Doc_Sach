@@ -11,7 +11,6 @@ import FirebaseAuth
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
@@ -61,6 +60,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BannerTittleTableViewCell", for: indexPath) as! BannerTittleTableViewCell
+            cell.ivBanner.image = UIImage(named: "iv_banner_tittle")
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReadingBookTableViewCell", for: indexPath) as! ReadingBookTableViewCell
@@ -69,5 +69,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1{
+            let vc = DetailBookViewController()
+            vc.page = 1
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        if indexPath.row == 2{
+            let vc = DetailBookViewController()
+            vc.page = 2
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        if indexPath.row == 3{
+            let vc = DetailBookViewController()
+            vc.page = 3
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

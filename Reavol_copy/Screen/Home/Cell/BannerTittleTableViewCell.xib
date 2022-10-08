@@ -74,6 +74,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="ivBanner" destination="Fio-9w-MKp" id="6Jc-1v-Ozi"/>
+                <outlet property="lbTitle1" destination="tZk-uJ-KDR" id="dbC-gB-NIx"/>
+                <outlet property="lbTitle2" destination="DIu-ei-XaS" id="Vyn-7I-Cfn"/>
+            </connections>
             <point key="canvasLocation" x="87.692307692307693" y="128.3175355450237"/>
         </tableViewCell>
     </objects>

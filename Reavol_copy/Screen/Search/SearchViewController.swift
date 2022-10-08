@@ -13,10 +13,7 @@ class SearchViewController: UIViewController {
     let viewModel = SearchViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        let nib = UINib(nibName: "BookTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "BookTableViewCell")
+        configTableView()
         viewModel.fetch()
         viewModelBinding()
     }
@@ -26,6 +23,12 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
+    func configTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib = UINib(nibName: "DetailBookTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "DetailBookTableViewCell")
+    }
     func viewModelBinding(){
         viewModel.isLoadingUpdated = {[weak self] isLoading in
             if isLoading == true {
@@ -47,7 +50,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         return viewModel.arrBook.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell") as! BookTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailBookTableViewCell") as! DetailBookTableViewCell
         cell.item = viewModel.arrBook[indexPath.row]
         return cell
     }
